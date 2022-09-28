@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Page</title>
+</head>
+<body>
+<table border="1px">
+    <tr>
+        <th>name</th>
+        <th>surname</th>
+        <th>email</th>
+        <th>phoneNumber</th>
+        <th>salary</th>
+        <th>position</th>
+        <th>company</th>
+        <th>profilePic</th>
+    </tr>
+    <tr th:each="employee: ${employees}">
+        <th th:text="${employee.name}"></th>
+        <th th:text="${employee.surname}"></th>
+        <th th:text="${employee.email}"></th>
+        <th th:text="${employee.phoneNumber}"></th>
+        <th th:text="${employee.salary}"></th>
+        <th th:text="${employee.position.name()}"></th>
+        <th th:text="${employee.company.name}"></th>
+        <th>
+            <img th:if="${employee.profilePic != null}"th:src="@{/getImage(picName=${employee.profilePic})}" width="100px" height="100px">
+            <img th:if="${employee.profilePic == null }" src="/static/bgImige.jpg" width="100px" height="100px"/>
+        </th>
+    </tr>
+</table>
+<a href="/add/employee/page">add employees</a>
+</body>
+</html>
