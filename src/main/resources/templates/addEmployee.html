@@ -20,7 +20,7 @@
         <option value="MASTER">MASTER</option>
         <option value="DRIVER">DRIVER</option>
     </select>
-    <select name="company.id"><br>
+    <select name="company"><br>
         <option th:each="company: ${companies}" th:text="${company.name}"
                 th:value="${company.id}"></option>
     </select>

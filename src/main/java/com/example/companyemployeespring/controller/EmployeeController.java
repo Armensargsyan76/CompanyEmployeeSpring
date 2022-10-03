@@ -42,7 +42,7 @@ public class EmployeeController {
     @PostMapping("add/employee")
     public String addEmployee(@ModelAttribute Employee employee,
                               @RequestParam("image") MultipartFile multipartFile) throws IOException {
-        Company company = companyRepository.getReferenceById(employee.getCompany().getId());
+        Company company = employee.getCompany();
         company.setSize(company.getSize() + 1);
         companyRepository.save(company);
         if (!multipartFile.isEmpty() && multipartFile.getSize() > 0) {
