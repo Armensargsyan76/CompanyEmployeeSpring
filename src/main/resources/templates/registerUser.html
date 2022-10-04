@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>register</title>
@@ -8,6 +8,7 @@
 <form action="/user/register" method="post">
     <input type="text" name="name" placeholder="please input name">
     <input type="email" name="email" placeholder="please input email">
+    <span th:if="${errorMessage != null}" th:text="${errorMessage}"></span>
     <input type="password" name="password" placeholder="please input password">
     <input type="submit" name="register">
 </form>
